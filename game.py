@@ -521,6 +521,8 @@ def Ans_1_handler(msg, session):
     session["phase"] += 1
     return '''
     恭喜你完成剧情，下面请给出你的猜测：
+    （回复完以下四个问题才算成功哦。）
+    
     你猜测的凶手是：
     '''
 
@@ -614,8 +616,8 @@ def onUserReply(msg, session):
     phase = session["phase"]
     if phase > 1:
         name = session["name"]
-        print("==== %s @ %s ===="%(
-            name, handler_list[phase].__name__
+        print("==== %s @ %s :%s ===="%(
+            name, handler_list[phase].__name__, text
         ))
 
     handler = nullHandler
